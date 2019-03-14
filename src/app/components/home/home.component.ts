@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+    this.homeService.getContriesLanguage().subscribe((resp: any) => {
+      console.log('resp---->', resp);
+    });
   }
 
 }
