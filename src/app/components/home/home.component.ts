@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.homeService.getContriesLanguage().subscribe((resp: any) => {
-      console.log('resp---->', resp);
+      console.log('resp--------->', resp);
     });
   }
 
