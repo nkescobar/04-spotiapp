@@ -1,3 +1,13 @@
-<p>
-  home works!
-</p>
+<div class="card-columns">
+    <div *ngFor="let sound of newSounds" class="card">
+        <img [src]="sound.images[0].url" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{sound.name}}</h5>
+            <p class="card-text">{{sound.artist}}
+                <span *ngFor="let artist of sound.artists" class="badge badge-primary">
+              {{artist.name}}</span>
+
+            </p>
+        </div>
+    </div>
+</div>
