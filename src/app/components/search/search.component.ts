@@ -19,7 +19,10 @@ export class SearchComponent implements OnInit {
     this.spotifyService.getArtist(termino)
       .subscribe((data: any) => {
         console.log('TCL: SearchComponent -> search -> data', data);
-       // this.artists = data.artist.items;
+        this.artists = data;
+      },
+      error => {
+        console.log('TCL: SearchComponent -> search -> error', error);
       });
   }
 

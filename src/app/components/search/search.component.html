@@ -3,7 +3,7 @@
         <input #termino type="text" (keyup)="search(termino.value)" class="form-control" placeholder="buscar artista">
     </div>
 </div>
-<div class="card-columns">
+<div *ngIf="artists" class="card-columns m-5">
     <div *ngFor="let artist of artists" class="card">
         <img [src]="artist.images[0].url" class="card-img-top" alt="...">
         <div class="card-body">

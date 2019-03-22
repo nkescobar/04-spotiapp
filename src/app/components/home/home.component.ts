@@ -14,16 +14,14 @@ export class HomeComponent implements OnInit {
   constructor(private homeService: HomeService, private spotifyService: SpotifyService) { }
 
   ngOnInit() {
-    this.spotifyService.getNewReleases();
-
-    this.homeService.getContriesLanguage().subscribe((resp: any) => {
-      console.log('resp--------->', resp);
-    });
-
     this.spotifyService.getNewReleases()
-    .subscribe((data: any) => {
-      this.newSounds = data.albums.items;
-      console.log('TCL: HomeComponent -> ngOnInit -> this.newSounds', this.newSounds);
+    .subscribe( (data: any) => {
+      this.newSounds = data;
+
+      console.log('TCL: HomeComponent -> ngOnInit -> resp', data);
+    },
+    error => {
+      console.error('error -->', error);
     });
   }
 
